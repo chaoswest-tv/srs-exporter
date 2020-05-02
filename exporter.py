@@ -68,5 +68,5 @@ if __name__ == '__main__':
     REGISTRY.register(StreamCollector())
 
     app = make_wsgi_app()
-    httpd = make_server('', os.environ.get('LISTEN_PORT', 9185), app, handler_class=_SilentHandler)
+    httpd = make_server('', int(os.environ.get('LISTEN_PORT', 9185)), app, handler_class=_SilentHandler)
     httpd.serve_forever()
